@@ -10,3 +10,30 @@ CREATE TABLE animals (
 );
  ALTER TABLE animals
  ADD COLUMN  species varchar(50);
+
+ CREATE TABLE owners (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  full_name VARCHAR(250),
+  age INT,
+  PRIMARY KEY (id)
+ );
+
+
+ CREATE TABLE species(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(250),
+  PRIMARY KEY (id)
+ );
+
+ ALTER TABLE animals
+ DROP COLUMN species;
+
+ALTER TABLE animals
+ADD COLUMN species_id INT,
+ADD FOREIGN KEY (species_id) REFERENCES species (id)
+ON DELETE CASCADE;
+
+ALTER TABLE animals
+ADD COLUMN owner_id INT,
+ADD FOREIGN KEY (owner_id) REFERENCES owners (id)
+ON DELETE CASCADE;
