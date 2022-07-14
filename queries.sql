@@ -28,18 +28,23 @@ GROUP BY species;
 SELECT name FROM animals
 JOIN owners ON animals.owner_id = owners.id
 WHERE owners.id = 4;
+
 SELECT animals.name, animals.species_id, species.name FROM animals
 JOIN species ON animals.species_id = species.id
 WHERE species.id = 1;
+
 SELECT full_name ,name FROM owners
 LEFT JOIN animals
 ON animals.owner_id = owners.id;
+
 SELECT species.name, COUNT(animals.species_id) FROM animals
 JOIN species ON animals.species_id = species.id GROUP BY species.name;
+
 SELECT animals.name FROM animals
-vet_clinic-# JOIN owners
-vet_clinic-# ON animals.owner_id = owners.id
-vet_clinic-# WHERE species_id =2 AND owners.id=2;
+JOIN owners
+ON animals.owner_id = owners.id
+WHERE species_id =2 AND owners.id=2;
+
 SELECT animals.name FROM animals
 JOIN owners
 ON animals.owner_id = owners.id
