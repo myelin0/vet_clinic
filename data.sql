@@ -13,3 +13,44 @@ INSERT INTO animals VALUES(9,'Boarmon','2005-06-07',7,'1',20.4);
 INSERT INTO animals VALUES(10,'Blossom','1998-10-13',3,'1',17);
 INSERT INTO animals VALUES(11,'Ditto','2022-05-14',4,'1',22);
 
+INSERT INTO owners(full_name, age)
+VALUES('Sam Smith', 34);
+INSERT INTO owners(full_name, age)
+ VALUES ('Jennifer Orwell',19);
+INSERT INTO owners(full_name, age)
+ VALUES ('Bob', 45);
+ INSERT INTO owners(full_name, age)
+ VALUES('Melody Pond',77);
+INSERT INTO owners(full_name, age)
+ VALUES('Dean Winchester', 14);
+ INSERT INTO owners(full_name, age)
+ VALUES('Jodie Whittaker',38);
+ INSERT INTO species(name)
+ VALUES('Pokemon');
+INSERT INTO species(name)
+VALUES('Digimon');
+
+UPDATE animals
+vet_clinic-# SET species_id = 2
+vet_clinic-# WHERE name LIKE '%mon';
+UPDATE animals
+vet_clinic-# SET species_id = 1
+vet_clinic-# WHERE species_id IS NULL;
+
+UPDATE animals
+SET owner_id = 1
+WHERE name LIKE 'Agumon';
+
+UPDATE animals
+SET owner_id = 2
+WHERE name IN('Pikachu', 'Gabumon' ) ;
+UPDATE animals
+SET owner_id = 3
+WHERE name IN('Devimon', 'Plantmon' ) ;
+UPDATE animals
+SET owner_id = 4
+WHERE name IN('Charmander', 'Squirtle', 'Blossom' ) ;
+UPDATE animals
+SET owner_id = 5
+WHERE name IN('Angemon', 'Boarmon' ) ;
+

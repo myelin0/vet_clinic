@@ -24,3 +24,31 @@ SELECT species, AVG(escape_attempts)
 FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-01-01'
 GROUP BY species;
+
+SELECT name FROM animals
+JOIN owners ON animals.owner_id = owners.id
+WHERE owners.id = 4;
+
+SELECT animals.name, animals.species_id, species.name FROM animals
+JOIN species ON animals.species_id = species.id
+WHERE species.id = 1;
+
+SELECT full_name ,name FROM owners
+LEFT JOIN animals
+ON animals.owner_id = owners.id;
+
+SELECT species.name, COUNT(animals.species_id) FROM animals
+JOIN species ON animals.species_id = species.id GROUP BY species.name;
+
+SELECT animals.name FROM animals
+JOIN owners
+ON animals.owner_id = owners.id
+WHERE species_id =2 AND owners.id=2;
+
+SELECT animals.name FROM animals
+JOIN owners
+ON animals.owner_id = owners.id
+WHERE owners.id = 5 AND animals.escape_attempts=0;
+
+SELECT owners.full_name, COUNT(animals.owner_id) AS total_animals FROM animals
+JOIN owners ON animals.owner_id = owners.id GROUP BY owners.full_name ORDER BY COUNT(*) DESC;
